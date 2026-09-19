@@ -16,8 +16,8 @@ export default class SC_Slider extends PureComponent {
     const { name, min, max, step, value } = this.props
 
     return (
-      <div className="SC_Slider">
-        <h3>{name}</h3>
+      <div className="Slider">
+        <div className="title">{name}</div>
 
         <input
           ref={this.input}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 
-export default class SC_Button extends PureComponent {
+export default class Button extends PureComponent {
   constructor(props) {
     super(props)
   }
@@ -10,14 +10,14 @@ export default class SC_Button extends PureComponent {
     const { text, handleClick } = this.props
 
     return (
-      <div className="SC_Button" onClick={handleClick}>
+      <div className="Button" onClick={handleClick}>
         {text}
       </div>
     )
   }
 }
 
-SC_Button.propTypes = {
+Button.propTypes = {
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired
 }

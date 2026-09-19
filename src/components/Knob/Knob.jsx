@@ -166,9 +166,9 @@ export default class SC_Knob extends PureComponent {
     }
 
     return (
-      <div className="SC_Knob" onMouseDown={this.handleMouseDown}>
+      <div className="Knob" onMouseDown={this.handleMouseDown}>
         <div className="wrapper">
-          <h3>{name}</h3>
+          <div className="title">{name}</div>
 
           <div className="body">
             <div style={styles}></div>

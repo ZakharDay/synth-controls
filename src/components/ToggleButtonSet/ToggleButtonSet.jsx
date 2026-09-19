@@ -30,7 +30,7 @@ export default class ToggleButtonSet extends PureComponent {
 
     return (
       <div className="ToggleButtonSet">
-        <h3>{name}</h3>
+        <div className="title">{name}</div>
         <div>{buttonElements}</div>
       </div>
     )

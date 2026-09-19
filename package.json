@@ -6,6 +6,10 @@
     "build": "bun run clean && bun run bun.config.prod.js"
   },
   "dependencies": {
-    "qr-creator": "^1.0.0"
+    "classnames": "^2.5.1",
+    "prop-types": "^15.8.1",
+    "qr-creator": "^1.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   }
 }

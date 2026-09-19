@@ -1,5 +1,4 @@
 import { join, dirname } from 'node:path'
-import { BunPlugin } from 'bun'
 
 const htmlPartialPlugin = {
   name: 'html-partial-plugin',

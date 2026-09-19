@@ -1,64 +1,80 @@
 import { join, dirname } from 'node:path'
 
+import index from './src/index.html'
+import elementsReact from './src/elements-react.html'
+
 const PORT = 3000
 const SRC_DIR = './src'
 
+async function processHtmlFile(filePath) {
+  const file = Bun.file(filePath)
+
+  if (!(await file.exists())) {
+    return new Response('404 Not Found', { status: 404 })
+  }
+
+  const htmlContent = await file.text()
+  const currentDir = dirname(filePath)
+
+  const rewriter = new HTMLRewriter().on('include-partial', {
+    async element(el) {
+      const srcAttr = el.getAttribute('src')
+      if (srcAttr) {
+        const partialPath = join(currentDir, srcAttr)
+        try {
+          const partialHtml = await Bun.file(partialPath).text()
+          el.replace(partialHtml, { html: true })
+        } catch (err) {
+          console.error(`[Dev Server] Failed to load partial: ${partialPath}`)
+          el.replace(`<!-- Error loading partial: ${srcAttr} -->`, {
+            html: true
+          })
+        }
+      }
+    }
+  })
+
+  const transformedHtml = await rewriter
+    .transform(new Response(htmlContent))
+    .text()
+
+  return new Response(transformedHtml, {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' }
+  })
+}
+
 Bun.serve({
   port: PORT,
-  async fetch(req) {
-    const url = new URL(req.url)
-    let filePath = join(SRC_DIR, url.pathname)
+  routes: {
+    '/': index,
+    '/elements-html': () =>
+      processHtmlFile(join(SRC_DIR, 'elements-html.html')),
+    '/elements-react': elementsReact,
 
-    // If the path ends in a slash or is empty, default to index.html
-    if (url.pathname === '/' || url.pathname.endsWith('/')) {
-      filePath = join(filePath, 'index.html')
-    }
+    // // Одиночные сегменты (/about -> src/about.html)
+    // '/:page': (req) => {
+    //   const pageName = req.params.page
+    //   return processHtmlFile(join(SRC_DIR, `${pageName}.html`))
+    // },
 
-    const file = Bun.file(filePath)
+    // Вложенные пути и статические ассеты (js, css, картинки)
+    '/*': async (req) => {
+      const url = new URL(req.url)
 
-    // 1. Handle missing files gracefully
-    if (!(await file.exists())) {
+      const potentialHtmlPath = join(SRC_DIR, `${url.pathname}.html`)
+      if (await Bun.file(potentialHtmlPath).exists()) {
+        return processHtmlFile(potentialHtmlPath)
+      }
+
+      const assetPath = join(SRC_DIR, url.pathname)
+      const assetFile = Bun.file(assetPath)
+
+      if (await assetFile.exists()) {
+        return new Response(assetFile)
+      }
+
       return new Response('404 Not Found', { status: 404 })
     }
-
-    // 2. If it's an HTML file, process the <include-partial> tags dynamically
-    if (filePath.endsWith('.html')) {
-      const htmlContent = await file.text()
-      const currentDir = dirname(filePath)
-
-      const rewriter = new HTMLRewriter().on('include-partial', {
-        async element(el) {
-          const srcAttr = el.getAttribute('src')
-          if (srcAttr) {
-            // Resolve path relative to the current HTML file
-            const partialPath = join(currentDir, srcAttr)
-            try {
-              const partialHtml = await Bun.file(partialPath).text()
-              el.replace(partialHtml, { html: true })
-            } catch (err) {
-              console.error(
-                `[Dev Server] Failed to load partial: ${partialPath}`
-              )
-              el.replace(`<!-- Error loading partial: ${srcAttr} -->`, {
-                html: true
-              })
-            }
-          }
-        }
-      })
-
-      const transformedHtml = await rewriter
-        .transform(new Response(htmlContent))
-        .text()
-
-      return new Response(transformedHtml, {
-        headers: { 'Content-Type': 'text/html; charset=utf-8' }
-      })
-    }
-
-    // 3. Fallback: serve regular assets (JS, TS, CSS, images) directly from /src
-    // Bun automatically detects and assigns the correct Content-Type header
-    return new Response(file)
   }
 })
 

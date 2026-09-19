@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 
-import SequencerRow from '../SequencerRow/SequencerRow.js'
+import SequencerRow from '../SequencerRow/SequencerRow.jsx'
 
 export default class Sequencer extends PureComponent {
   constructor(props) {
