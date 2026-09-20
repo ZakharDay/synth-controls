@@ -5,6 +5,12 @@ body {
   color: var(--dark-grey);
 }
 
+h1,
+h2,
+p {
+  max-width: 700px;
+}
+
 h1 {
   margin: 20px 0 10px;
   font-size: 32px;
@@ -15,6 +21,24 @@ h2 {
   font-size: 24px;
 }
 
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+p + p {
+  margin-top: 12px;
+}
+
+li {
+  margin: 8px 0;
+}
+
 a {
   color: var(--white);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--light-grey);
+  }
 }

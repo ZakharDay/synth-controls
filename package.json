@@ -1,5 +1,5 @@
 {
-  "name": "generative-boilerplate-bun",
+  "name": "synth-controls",
   "scripts": {
     "dev": "bun bun.config.dev.js",
     "clean": "rm -rf dist",
@@ -8,8 +8,8 @@
   "dependencies": {
     "classnames": "^2.5.1",
     "prop-types": "^15.8.1",
-    "qr-creator": "^1.0.0",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "tone": "^15.1.22"
   }
 }
