@@ -24,9 +24,9 @@ const synthSettings = {
 }
 
 const freeverbSettings = {
-  wet: 0.6,
+  wet: 0.8,
   roomSize: 0.9,
-  dampening: 40
+  dampening: 8
 }
 
 function initWebAudio() {

@@ -25,7 +25,7 @@ const synthSettings = {
 
 const reverbSettings = {
   wet: 0.6,
-  decay: 3.5,
+  decay: 0.9,
   preDelay: 0.4
 }
 

@@ -25,8 +25,8 @@ const synthSettings = {
 
 const tremoloSettings = {
   wet: 0.6,
-  frequency: 10,
-  type: 'sawtooth',
+  frequency: 400,
+  type: 'square',
   depth: 0.9,
   spread: 30
 }
@@ -37,7 +37,7 @@ function initWebAudio() {
 
 function initAndStartSynth() {
   const synthNode = new Tone.Synth(synthSettings)
-  const tremoloNode = new Tone.Tremolo(tremoloSettings).toDestination()
+  const tremoloNode = new Tone.Tremolo(tremoloSettings).start().toDestination()
   synthNode.connect(tremoloNode)
 
   // prettier-ignore

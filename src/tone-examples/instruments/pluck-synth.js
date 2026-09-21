@@ -2,8 +2,8 @@ import * as Tone from 'tone'
 
 const synthSettings = {
   volume: 0.8,
-  attackNoise: 12, // https://tonejs.github.io/docs/15.1.22/classes/PluckSynth.html#attackNoise
-  resonance: 0.96
+  attackNoise: 0.1, // https://tonejs.github.io/docs/15.1.22/classes/PluckSynth.html#attackNoise
+  resonance: 1
 }
 
 function initWebAudio() {

@@ -25,7 +25,7 @@ const synthSettings = {
 
 const jcReverbSettings = {
   wet: 0.6,
-  roomSize: 0.5
+  roomSize: 0.1
 }
 
 function initWebAudio() {

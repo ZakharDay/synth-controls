@@ -25,13 +25,6 @@ const synthSettings = {
   }
 }
 
-const channelSettings = {
-  volume: -6,
-  pan: 0,
-  mute: false,
-  solo: false
-}
-
 function initWebAudio() {
   Tone.start()
 }

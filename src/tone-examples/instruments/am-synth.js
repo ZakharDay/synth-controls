@@ -52,7 +52,6 @@ function initAndStartSynth() {
   const seq = new Tone.Sequence(
     (time, note) => {
       synthNode.triggerAttackRelease(note, 0.1, time)
-      // subdivisions are given as subarrays
     },
     [
       'C4', 'E4', 'G4', 'A4', 'C4', 'E4', 'G4', 'A4',

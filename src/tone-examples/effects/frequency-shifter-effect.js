@@ -25,7 +25,7 @@ const synthSettings = {
 
 const frequencyShifterSettings = {
   wet: 0.6,
-  frequency: 42
+  frequency: 1000
 }
 
 function initWebAudio() {
