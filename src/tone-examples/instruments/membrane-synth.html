@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membrane Synth</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <script src="membrane-synth.js"></script>
+  </head>
+
+  <body>
+    <div class="Button" id="startButton">Start</div>
+
+    <div class="source">
+      <!-- prettier-ignore -->
+      <a href="https://github.com/ZakharDay/synth-controls/blob/main/src/tone-examples/instruments/membrane-synth.js" target="_blank">Source</a>
+    </div>
+
+    <h1>Membrane Synth</h1>
+
+    <p>
+      MembraneSynth makes kick and tom sounds using a single oscillator with an
+      amplitude envelope and frequency ramp. A Tone.OmniOscillator is routed
+      through a Tone.AmplitudeEnvelope to the output. The drum quality of the
+      sound comes from the frequency envelope applied during
+      MembraneSynth.triggerAttack(note). The frequency envelope starts at note *
+      .octaves and ramps to note over the duration of .pitchDecay.
+    </p>
+  </body>
+</html>

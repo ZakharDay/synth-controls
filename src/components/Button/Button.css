@@ -7,6 +7,7 @@
   background-color: var(--white);
   color: var(--black);
   cursor: pointer;
+  user-select: none;
 }
 
 .Button:hover {

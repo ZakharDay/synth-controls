@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 20px;
   font-family: 'PT Root UI', Helvetica, Arial, sans-serif;
@@ -40,5 +44,20 @@ a {
 
   &:hover {
     color: var(--light-grey);
+  }
+}
+
+.source {
+  margin: 20px 0 40px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.6;
+
+  a {
+    color: var(--acid-green);
+
+    &:hover {
+      color: var(--dark-green);
+    }
   }
 }

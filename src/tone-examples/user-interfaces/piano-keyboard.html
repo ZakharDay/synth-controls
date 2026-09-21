@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano Keyboard</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <script src="piano-keyboard.js"></script>
+
+    <style>
+      #pianoKeyboard > div {
+        display: flex;
+      }
+
+      #pianoKeyboard .sharps > div {
+        display: flex;
+        margin-left: 50px;
+      }
+
+      #pianoKeyboard .sharps > div:first-child {
+        margin-left: 25px;
+      }
+
+      #pianoKeyboard .Button {
+        width: 50px;
+        min-width: 50px;
+      }
+
+      #pianoKeyboard .sharps .Button {
+        background-color: var(--black);
+        color: var(--white);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="Button" id="startButton">Start</div>
+
+    <br />
+
+    <div id="pianoKeyboard">
+      <div class="sharps">
+        <div>
+          <div class="Button">C#2</div>
+          <div class="Button">D#2</div>
+        </div>
+
+        <div>
+          <div class="Button">F#2</div>
+          <div class="Button">G#2</div>
+          <div class="Button">A#2</div>
+        </div>
+
+        <div>
+          <div class="Button">C#3</div>
+          <div class="Button">D#3</div>
+        </div>
+
+        <div>
+          <div class="Button">F#3</div>
+          <div class="Button">G#3</div>
+          <div class="Button">A#3</div>
+        </div>
+
+        <div>
+          <div class="Button">C#4</div>
+          <div class="Button">D#4</div>
+        </div>
+
+        <div>
+          <div class="Button">F#4</div>
+          <div class="Button">G#4</div>
+          <div class="Button">A#4</div>
+        </div>
+
+        <div>
+          <div class="Button">C#5</div>
+          <div class="Button">D#5</div>
+        </div>
+
+        <div>
+          <div class="Button">F#5</div>
+          <div class="Button">G#5</div>
+          <div class="Button">A#5</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="Button">C2</div>
+        <div class="Button">D2</div>
+        <div class="Button">E2</div>
+        <div class="Button">F2</div>
+        <div class="Button">G2</div>
+        <div class="Button">A2</div>
+        <div class="Button">B2</div>
+        <div class="Button">C3</div>
+        <div class="Button">D3</div>
+        <div class="Button">E3</div>
+        <div class="Button">F3</div>
+        <div class="Button">G3</div>
+        <div class="Button">A3</div>
+        <div class="Button">B3</div>
+        <div class="Button">C4</div>
+        <div class="Button">D4</div>
+        <div class="Button">E4</div>
+        <div class="Button">F4</div>
+        <div class="Button">G4</div>
+        <div class="Button">A4</div>
+        <div class="Button">B4</div>
+        <div class="Button">C5</div>
+        <div class="Button">D5</div>
+        <div class="Button">E5</div>
+        <div class="Button">F5</div>
+        <div class="Button">G5</div>
+        <div class="Button">A5</div>
+        <div class="Button">B5</div>
+      </div>
+    </div>
+
+    <div class="source">
+      Source:
+      <!-- prettier-ignore -->
+      <a href="https://github.com/ZakharDay/synth-controls/blob/main/src/tone-examples/user-interfaces/piano-keyboard.html" target="_blank">HTML</a>
+      <!-- prettier-ignore -->
+      <a href="https://github.com/ZakharDay/synth-controls/blob/main/src/tone-examples/user-interfaces/piano-keyboard.js" target="_blank">JS</a>
+    </div>
+  </body>
+</html>
