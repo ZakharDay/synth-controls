@@ -39,6 +39,7 @@ import channel from './src/tone-examples/components/channel.html'
 import effectsChaining from './src/tone-examples/sound-design/effects-chaining.html'
 
 import loop from './src/tone-examples/events/loop.html'
+import part from './src/tone-examples/events/part.html'
 import pattern from './src/tone-examples/events/pattern.html'
 import sequence from './src/tone-examples/events/sequence.html'
 
@@ -129,6 +130,7 @@ Bun.serve({
     '/tone-examples/components/channel.html': channel,
     '/tone-examples/sound-design/effects-chaining.html': effectsChaining,
     '/tone-examples/events/loop.html': loop,
+    '/tone-examples/events/part.html': part,
     '/tone-examples/events/pattern.html': pattern,
     '/tone-examples/events/sequence.html': sequence,
     '/tone-examples/user-interfaces/button.html': button,

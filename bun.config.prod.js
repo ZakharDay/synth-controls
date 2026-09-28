@@ -70,6 +70,7 @@ await Bun.build({
     './src/tone-examples/components/channel.html',
     './src/tone-examples/sound-design/effects-chaining.html',
     './src/tone-examples/events/loop.html',
+    './src/tone-examples/events/part.html',
     './src/tone-examples/events/pattern.html',
     './src/tone-examples/events/sequence.html',
     './src/tone-examples/user-interfaces/button.html',
