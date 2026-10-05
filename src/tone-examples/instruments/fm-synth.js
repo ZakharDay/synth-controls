@@ -47,7 +47,7 @@ function initWebAudio() {
 }
 
 function initAndStartSynth() {
-  const synthNode = new Tone.AMSynth(synthSettings).toDestination()
+  const synthNode = new Tone.FMSynth(synthSettings).toDestination()
 
   // prettier-ignore
   const seq = new Tone.Sequence(
